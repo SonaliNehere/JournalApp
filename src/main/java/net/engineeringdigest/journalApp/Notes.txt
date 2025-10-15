@@ -1,0 +1,88 @@
+Project: Journal Management System (Spring Boot, MongoDB, Spring Security)
+Project Overview
+
+You developed a full-stack RESTful application to manage users and their personal journal entries. The system includes CRUD
+ operations for both users and journal entries, with role-based and JWT authentication, and MongoDB as the database. The project
+  also implements manual cascading behavior for deletion and demonstrates knowledge of Spring Boot features.
+
+1. Technology Stack
+Backend: Java, Spring Boot 2.7
+Database: MongoDB
+Security: Spring Security, Basic Auth, Role-based Auth, JWT
+Other Features: Scheduling with Spring @Scheduled, Kafka (for future tasks), REST APIs
+
+2. Core Features
+User Management
+Create, update, retrieve, and delete users.
+Each user has:
+    userName (unique)
+    password
+    email
+    List of roles
+    List of journalEntries
+Security:
+    Role-based authentication: Users are authenticated and authorized based on roles.
+    JWT-based authentication for secure REST endpoints.
+Cascade Delete:
+    When a user is deleted, all their journal entries are deleted from the database.
+    When a journal entry is deleted, it is also removed from the corresponding user’s list.
+
+-------------------------------------------------------------------------------------------
+Journal Entry Management
+CRUD operations for journal entries:
+    Create, read, update, delete.
+    Each journal entry has title, content, date, and is linked to a user via @DBRef.
+Access Control: Users can only manage their own journal entries.
+Manual cascading logic ensures data consistency between users and journal entries.
+
+Security Features
+Basic authentication for initial testing.
+Role-based authentication to differentiate between users and admins (if required).
+JWT authentication for stateless REST API security.
+Authentication context is used to identify the currently logged-in user when performing CRUD operations.
+
+Scheduling & Kafka
+Implemented scheduled tasks using Spring @Scheduled:
+    Fixed-rate tasks running every few seconds.
+    Daily jobs using cron expressions.
+Integrated Kafka producer/consumer (demoed with scheduled tasks), showing knowledge of asynchronous messaging.
+
+Database Design
+MongoDB as the NoSQL database.
+User Collection:
+    Stores user details and references to journal entries (@DBRef).
+JournalEntry Collection:
+    Stores journal content, title, and creation date.
+    Linked to user through @DBRef.
+Manual cascading ensures proper deletion of related documents.
+
+REST API Endpoints
+UserController
+    GET /user → Returns greeting + weather info (demo of service integration).
+    PUT /user → Update user details.
+    DELETE /user → Delete user along with all journal entries.
+JournalEntryController
+    GET /journal → Get all journal entries of logged-in user.
+    GET /journal/id/{id} → Get a specific journal entry.
+    POST /journal → Create a journal entry.
+    PUT /journal/id/{id} → Update a journal entry.
+    DELETE /journal/id/{id} → Delete a journal entry.
+
+Additional Features
+Integration with external services (e.g., Weather API) to demonstrate service calls.
+Scheduled tasks for potential automation or notifications.
+Parallel scheduled tasks with @Async to demonstrate multi-threaded scheduling.
+
+Key Highlights
+Full CRUD operations for both users and journal entries.
+Manual cascading delete ensures data consistency between users and journal entries.
+Secure REST API using Spring Security + JWT.
+MongoDB NoSQL database design with @DBRef relationships.
+Use of scheduled tasks and Kafka integration demonstrates advanced Spring Boot features.
+
+Resume-ready Description
+Journal Management System (Java, Spring Boot, MongoDB, Spring Security)
+Developed a RESTful application to manage users and their journal entries. Implemented CRUD operations for users and journal
+entries with role-based and JWT authentication. Designed MongoDB collections with @DBRef references and implemented cascading
+delete logic to maintain data consistency. Integrated scheduled tasks and Kafka messaging to demonstrate asynchronous task
+execution.
