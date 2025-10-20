@@ -1,4 +1,22 @@
-Project: Journal Management System (Spring Boot, MongoDB, Spring Security)
+⚙️ Project Summary (Technical Understanding)
+You’ve built a Journal Management System with the following features:
+🔹 Backend Stack
+Java (Spring Boot) for backend logic.
+MongoDB as the NoSQL database.
+Spring Data MongoDB for persistence (@Document, @DBRef usage).
+Spring Security with:
+    Basic Authentication
+    Role-Based Access Control
+    JWT Token Authentication
+RESTful APIs for CRUD operations on:
+    Users
+    Journal Entries (linked to each user)
+Cascading-like logic:
+    Deleting a journal entry removes it from the user’s list.
+    Deleting a user removes all their journal entries.
+Integrated external API (WeatherService) for dynamic responses.
+
+🧾 Project: Journal Management System (Spring Boot, MongoDB, Spring Security)
 Project Overview
 
 You developed a full-stack RESTful application to manage users and their personal journal entries. The system includes CRUD

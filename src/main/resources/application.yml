@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+
+#logging:
+#  level:
+#    net:
+#      engineeringdigest:
+#        journalApp: DEBUG
+
+#logging:
+#  level:
+#    root: DEBUG
+
+#logging:
+#  level:
+#    root: OFF
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
